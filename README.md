@@ -1,4 +1,4 @@
-i# AtCoder Educational DP Contest
+# AtCoder Educational DP Contest
 
 Solutions and study notes for the [AtCoder Educational DP Contest](https://atcoder.jp/contests/dp/tasks).
 
