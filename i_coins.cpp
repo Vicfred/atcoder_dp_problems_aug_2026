@@ -21,7 +21,7 @@ int main() {
   // exactly h heads after tossing the first i
   // coins.
   vector<vector<long double>> dp(
-      N + 1, vector<long double>(N + 1));
+    N + 1, vector<long double>(N + 1));
 
   // Before tossing any coins, we have exactly
   // zero heads with probability 1.

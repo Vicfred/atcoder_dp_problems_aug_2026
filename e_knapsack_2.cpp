@@ -31,7 +31,7 @@ int main() {
   // obtain exactly value v using the first i
   // items.
   vector<vector<int64_t>> dp(
-      N + 1, vector<int64_t>(totalValue + 1, INF));
+    N + 1, vector<int64_t>(totalValue + 1, INF));
 
   // With no items, only value 0 can be obtained.
   dp[0][0] = 0;
@@ -44,9 +44,9 @@ int main() {
       // Take item i - 1, if the remaining value
       // is valid.
       if (v >= items[i - 1].v) {
-        dp[i][v] = min(dp[i][v],
-                       items[i - 1].w +
-                           dp[i - 1][v - items[i - 1].v]);
+        dp[i][v] =
+          min(dp[i][v], items[i - 1].w +
+                          dp[i - 1][v - items[i - 1].v]);
       }
     }
   }

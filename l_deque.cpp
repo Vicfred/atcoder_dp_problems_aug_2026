@@ -49,14 +49,14 @@ int main() {
       int64_t remainingLeft = prefix[r + 1] - prefix[l + 1];
 
       int64_t takeLeft =
-          a[l] + remainingLeft - dp[l + 1][r];
+        a[l] + remainingLeft - dp[l + 1][r];
 
       // Symmetrically, taking a[r] leaves [l, r -
       // 1] for the opponent.
       int64_t remainingRight = prefix[r] - prefix[l];
 
       int64_t takeRight =
-          a[r] + remainingRight - dp[l][r - 1];
+        a[r] + remainingRight - dp[l][r - 1];
 
       dp[l][r] = max(takeLeft, takeRight);
     }

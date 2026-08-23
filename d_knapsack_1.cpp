@@ -33,9 +33,9 @@ int main() {
 
       // Take item i - 1.
       if (items[i - 1].w <= w) {
-        dp[i][w] = max(dp[i][w],
-                       items[i - 1].v +
-                           dp[i - 1][w - items[i - 1].w]);
+        dp[i][w] =
+          max(dp[i][w], items[i - 1].v +
+                          dp[i - 1][w - items[i - 1].w]);
       }
     }
   }

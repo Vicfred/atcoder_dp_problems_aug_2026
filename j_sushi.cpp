@@ -35,8 +35,8 @@ int main() {
   //   b dishes contain 2 pieces,
   //   c dishes contain 3 pieces.
   vector<vector<vector<double>>> dp(
-      N + 1,
-      vector<vector<double>>(N + 1, vector<double>(N + 1)));
+    N + 1,
+    vector<vector<double>>(N + 1, vector<double>(N + 1)));
 
   // This order guarantees that every state used
   // by the recurrence has already been computed:
@@ -59,21 +59,21 @@ int main() {
 
         if (a > 0) {
           expected +=
-              static_cast<double>(a) * dp[a - 1][b][c];
+            static_cast<double>(a) * dp[a - 1][b][c];
         }
 
         if (b > 0) {
           expected +=
-              static_cast<double>(b) * dp[a + 1][b - 1][c];
+            static_cast<double>(b) * dp[a + 1][b - 1][c];
         }
 
         if (c > 0) {
           expected +=
-              static_cast<double>(c) * dp[a][b + 1][c - 1];
+            static_cast<double>(c) * dp[a][b + 1][c - 1];
         }
 
         dp[a][b][c] =
-            expected / static_cast<double>(nonempty);
+          expected / static_cast<double>(nonempty);
       }
     }
   }
