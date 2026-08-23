@@ -25,30 +25,34 @@ int main() {
     totalValue += items[i].v;
   }
 
-  const int64_t INF = numeric_limits<int64_t>::max() / 4;
+  const int64_t INF =
+      numeric_limits<int64_t>::max() / 4;
 
   // dp[v] is the minimum weight needed to obtain
-  // exactly value v using the items considered so far.
+  // exactly value v using the items considered so
+  // far.
   vector<int64_t> dp(totalValue + 1, INF);
 
-  // Value 0 can always be obtained by taking no items.
+  // Value 0 can always be obtained by taking no
+  // items.
   dp[0] = 0;
 
   for (const auto &item : items) {
     // Iterate backwards so dp[v - item.v] still
-    // represents a state before considering this item.
-    // This prevents using the same item more than once.
-    for (int64_t v = totalValue; v >= item.v; --v) {
-      dp[v] =
-          min(dp[v],
-              item.w + dp[v - item.v]);
+    // represents a state before considering this
+    // item. This prevents using the same item
+    // more than once.
+    for (int64_t v = totalValue; v >= item.v;
+         --v) {
+      dp[v] = min(dp[v], item.w + dp[v - item.v]);
     }
   }
 
   int64_t answer = 0;
 
-  // Find the greatest value whose minimum required
-  // weight does not exceed the knapsack capacity.
+  // Find the greatest value whose minimum
+  // required weight does not exceed the knapsack
+  // capacity.
   for (int64_t v = 0; v <= totalValue; ++v) {
     if (dp[v] <= W) {
       answer = v;
