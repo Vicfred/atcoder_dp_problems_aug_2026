@@ -25,8 +25,7 @@ int main() {
     totalValue += items[i].v;
   }
 
-  const int64_t INF =
-      numeric_limits<int64_t>::max() / 4;
+  const int64_t INF = numeric_limits<int64_t>::max() / 4;
 
   // dp[v] is the minimum weight needed to obtain
   // exactly value v using the items considered so
@@ -42,8 +41,7 @@ int main() {
     // represents a state before considering this
     // item. This prevents using the same item
     // more than once.
-    for (int64_t v = totalValue; v >= item.v;
-         --v) {
+    for (int64_t v = totalValue; v >= item.v; --v) {
       dp[v] = min(dp[v], item.w + dp[v - item.v]);
     }
   }

@@ -17,21 +17,24 @@ int main() {
     cin >> p[i];
   }
 
-  // dp[i][h] is the probability of getting exactly h heads
-  // after tossing the first i coins.
+  // dp[i][h] is the probability of getting
+  // exactly h heads after tossing the first i
+  // coins.
   vector<vector<long double>> dp(
       N + 1, vector<long double>(N + 1));
 
-  // Before tossing any coins, we have exactly zero heads
-  // with probability 1.
+  // Before tossing any coins, we have exactly
+  // zero heads with probability 1.
   dp[0][0] = 1.0L;
 
   for (int64_t i = 1; i <= N; ++i) {
     for (int64_t h = 0; h <= i; ++h) {
-      // Coin i is tails, so we already had h heads.
+      // Coin i is tails, so we already had h
+      // heads.
       dp[i][h] = (1.0L - p[i - 1]) * dp[i - 1][h];
 
-      // Coin i is heads, so we previously had h - 1 heads.
+      // Coin i is heads, so we previously had h -
+      // 1 heads.
       if (h > 0) {
         dp[i][h] += p[i - 1] * dp[i - 1][h - 1];
       }
